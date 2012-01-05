@@ -1,5 +1,16 @@
 logic = require './logically'
 
+
+#   1. The diner who ate the beans did not eat the chicken.
+#   2. Cronkel did not eat the chicken.
+#   3. The diner who ate the beef was neither Cronkel nor Frossel.
+#   4. The diner who ate the duck was not Trusil.
+#   5. The diner who ate the asparagus was neither Frossel nor Trusil.
+#   6. The diner who ate the duck ate neither the beans nor the corn.
+#   7. Cronkel ate neither the turnips nor the asparagus.
+#   8. The diner who ate the turnips was not Frossel.
+
+
 cronkel = "Cronkel"
 frossel = "Frossel"
 grimble = "Grimble"

@@ -12,15 +12,19 @@ class DirectClue
 
   resolve: (solution) ->
 
+    # If eating beef, eat squash
     if solution[@kind1].length is 1 and @value1 in solution[@kind1] and @value2 in solution[@kind2]
       solution[@kind2] = [@value2]
 
+    # If not eating squash, remove beef
     if @value2 not in solution[@kind2] and @value1 in solution[@kind1]
       solution[@kind1] = _.without solution[@kind1], @value1
 
+    # If eating squash, eat beef
     if solution[@kind2].length is 1 and @value2 in solution[@kind2] and @value1 in solution[@kind1]
       solution[@kind1] = [@value1]
 
+    # If not eating beef, remove squash
     if @value1 not in solution[@kind1] and @value2 in solution[@kind2]
       solution[@kind2] = _.without solution[@kind2], @value2
 
@@ -39,17 +43,13 @@ class IndirectClue
 
   resolve: (solution) ->
 
+    # If eating beef then remove squash
     if solution[@kind1].length is 1 and @value1 in solution[@kind1] and @value2 in solution[@kind2]
       solution[@kind2] = _.without solution[@kind2], @value2
 
+    # If eating squash, remove beef
     if solution[@kind2].length is 1 and @value2 in solution[@kind2] and @value1 in solution[@kind1]
       solution[@kind1] = _.without solution[@kind1], @value1
-
-    if solution[@kind2].length is 1 and @value2 in solution[@kind2] and @value1 in solution[@kind1]
-      solution[@kind1] = _.without solution[@kind1], @value1
-
-    if solution[@kind1].length is 1 and @value1 in solution[@kind1] and @value2 in solution[@kind2]
-      solution[@kind2] = _.without solution[@kind2], @value2
 
     return solution
 

@@ -1,5 +1,11 @@
 logic = require './logically'
 
+#   1. The diner who ate the beef ate the squash.
+#   2. The diner who ate the beef was Cronkel.
+#   3. The diner who ate the turnips was not Gertel.
+#   4. The diner who ate the pork was not Pendoz.
+
+
 cronkel = "Cronkel"
 gertel = "Gertel"
 pendoz = "Pendoz"
