@@ -1,0 +1,17 @@
+{
+  "author": "Colin Ross <colin@colinscape.com> (http://colinscape.com/)",
+  "name": "logically",
+  "description": "Solve logic puzzles",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/colinscape/logically.git"
+  },
+  "main": "./logically.coffee",
+  "engines": {
+    "node": "0.6.6"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {}
+}
