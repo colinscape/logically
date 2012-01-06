@@ -99,7 +99,8 @@ class MultipleIndirectClue
       if solution[@kind2].length is 1 and v in solution[@kind2] and @value1 in solution[@kind1]
         solution[@kind1] = _.without solution[@kind1], @value1
 
-    # Secondly, look for possibilities that are the multiple
+    # Secondly, look for possibilities that have only the multiple
+    # Eg, if the vegetable choice is either squash or aparagus then can't eat beef
     seek = @value2.sort()
     if solution[@kind2].length is seek.length and (_.difference seek, solution[@kind2]).length is 0
       solution[@kind1] = _.without solution[@kind1], @value1
@@ -132,6 +133,7 @@ resolveCircles = (solution) ->
                      
   return solution
 
+# Find categories that have been solved and ensure that this knowledge is propagated.
 cleanup = (solution) ->
 
   solved = {}
@@ -150,8 +152,8 @@ cleanup = (solution) ->
   return result
 
 
-
-badness = (solution) ->
+# Measure the ambiguity in a solution
+ambiguity = (solution) ->
   total = 0
   for s in solution
     total += s.diner.length + s.meat.length + s.vegetable.length - 3
@@ -169,7 +171,7 @@ solve = (key, data, clues) ->
       s[index] = [v]
       solution.push s
 
-  quality = badness solution
+  quality = ambiguity solution
   oldQuality = quality + 1
   while quality < oldQuality
 
@@ -184,7 +186,7 @@ solve = (key, data, clues) ->
 
 
     oldQuality = quality
-    quality = badness solution
+    quality = ambiguity solution
 
   if quality is 0
     console.log "Solved!"
