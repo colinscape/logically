@@ -12,6 +12,7 @@
     "node": "0.6.6"
   },
   "dependencies": {
+    "underscore": "1.2.4"
   },
   "devDependencies": {}
 }
