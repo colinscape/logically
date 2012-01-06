@@ -168,8 +168,9 @@ solve = (key, data, clues) ->
   for index,values of key
 
     for v in values
-      s = _.clone data
+      s = {}
       s[index] = [v]
+      _.extend s, data
       solution.push s
 
   quality = ambiguity solution
