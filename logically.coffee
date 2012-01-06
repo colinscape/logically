@@ -156,7 +156,8 @@ cleanup = (solution) ->
 ambiguity = (solution) ->
   total = 0
   for s in solution
-    total += s.diner.length + s.meat.length + s.vegetable.length - 3
+    for k,v of s
+      total += v.length - 1
   return total
 
 
